@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,13 +32,13 @@ public class Team {
     private String name;
 
   
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Player> players=new ArrayList<Player>();
+     @OneToMany(mappedBy="team")
+     @JsonIgnore
+     private List<Player> players=new ArrayList<Player>();
     
    
     @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
-    @JsonIgnore
+    
     private Coach coach;
 
 	public Team() {

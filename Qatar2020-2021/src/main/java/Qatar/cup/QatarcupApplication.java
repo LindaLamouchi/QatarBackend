@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class QatarcupApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(QatarcupApplication.class, args);
 	}
 

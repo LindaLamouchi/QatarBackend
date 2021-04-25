@@ -1,13 +1,23 @@
 package Qatar.cup.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 
 
 
@@ -33,30 +43,18 @@ public class Player {
     @Column
     private String playerRole;
     
-   @ManyToOne
-   @JoinColumn(name="team_id",nullable = false)
-   private Team team;
-
     
-
-
+  
+    
+  
+   @ManyToOne(cascade=CascadeType.ALL) 
+   private Team team;
 
 	public Player() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Player(Long idPlayer, String firstName, String lastName, int age, String playerRole, Team team) {
-		super();
-		this.idPlayer = idPlayer;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.playerRole = playerRole;
-		this.team = team;
-	}
 
 
 
@@ -121,7 +119,7 @@ public class Player {
 		this.team = team;
 	}
 
-    
+
     
 
 }
