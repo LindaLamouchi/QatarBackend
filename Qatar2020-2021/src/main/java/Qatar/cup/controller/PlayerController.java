@@ -70,7 +70,10 @@ public class PlayerController {
 
         @DeleteMapping("/deletePlayer/{id}")
         public Optional<Player> deletePlayer(@PathVariable Long id){
-            return playerServ.deletePlayer(id);
+            Optional<Player> p=playerServ.getPlayer(id);
+            p.get().setTeam(null);
+            Player p2=p.get();
+        	return playerServ.deletePlayer(p2.getIdPlayer());
 
     }
 

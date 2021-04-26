@@ -42,10 +42,7 @@ public class Player {
 
     @Column
     private String playerRole;
-    
-    
-  
-    
+
   
    @ManyToOne(cascade=CascadeType.ALL) 
    private Team team;

@@ -28,7 +28,7 @@ public class Coach {
   
 
 	@OneToOne
-	@JoinColumn(name="team_id",nullable = false)
+	@JoinColumn(name="team_id",nullable = true)
 	private Team team;
 	    
 	public Coach() {

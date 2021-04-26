@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import Qatar.cup.models.Coach;
 import Qatar.cup.models.Team;
+import Qatar.cup.service.CoachService;
 import Qatar.cup.service.TeamService;
 
 
@@ -23,6 +25,9 @@ public class TeamController {
 
         @Autowired
        TeamService teamServ ;
+        
+        @Autowired
+        CoachService coachService ;
 
 
 
@@ -46,11 +51,7 @@ public class TeamController {
 
         }
 
-        @DeleteMapping("/deleteTeam/{id}")
-        public Optional<Team> deleteTeam(@PathVariable Long id){
-            return teamServ.deleteTeam(id);
-
-    }
+      
 
         @DeleteMapping("/deleteAllTeams")
         public String deleteAllTeams() {

@@ -37,8 +37,8 @@ public class Team {
      private List<Player> players=new ArrayList<Player>();
     
    
-    @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
-    
+    @OneToOne(mappedBy = "team")
+    @JsonIgnore
     private Coach coach;
 
 	public Team() {
