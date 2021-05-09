@@ -40,19 +40,34 @@ public class Team {
     @OneToOne(mappedBy = "team")
     @JsonIgnore
     private Coach coach;
+    
+    
+    @OneToOne(mappedBy = "team")
+    @JsonIgnore
+    private ImageModel imageModel;
 
 	public Team() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Team(Long idTeam, String name, List<Player> players,Coach coach) {
+	public Team(Long idTeam, String name, List<Player> players,Coach coach,ImageModel img) {
 		super();
 		this.idTeam = idTeam;
 		this.name = name;
 		this.players = players;
 		this.coach=coach;
+		this.imageModel=img;
 	
+	}
+		
+	
+	public ImageModel getImageModel() {
+		return imageModel;
+	}
+
+	public void setImageModel(ImageModel imageModel) {
+		this.imageModel = imageModel;
 	}
 
 	public Long getIdTeam() {
